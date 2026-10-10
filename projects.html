@@ -1,0 +1,860 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>مشاريعنا | Code Team</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .projects-page {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        .projects-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .projects-title span {
+            color: #00d9ff;
+            font-weight: bold;
+        }
+
+        .projects-title h1 {
+            font-size: 48px;
+            margin: 10px 0;
+        }
+
+        .projects-title p {
+            color: #9fb0c0;
+        }
+
+        .projects {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+        .project-card {
+
+            background: #0c1d30;
+
+            border: 1px solid #1b405d;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+        .project-card:hover {
+
+            transform: translateY(-10px);
+
+            border-color: #00d9ff;
+
+            box-shadow:
+                0 15px 40px #00d9ff18;
+        }
+
+        .project-image {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 250px;
+
+            overflow: hidden;
+        }
+
+        .project-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: .5s;
+        }
+
+        .project-card:hover img {
+
+            transform: scale(1.08);
+        }
+
+        .project-number {
+
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            background: #0077ff;
+
+            color: white;
+
+            padding: 6px 14px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+        }
+
+        .project-info {
+
+            padding: 25px;
+        }
+
+        .project-info .type {
+
+            color: #00d9ff;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        .project-info h2 {
+
+            margin: 8px 0;
+
+            font-size: 25px;
+        }
+
+        .project-info p {
+
+            color: #9fb0c0;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+        .technology {
+
+            display: inline-block;
+
+            background: #12324d;
+
+            color: #7fe8ff;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            margin: 3px;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= إحصائيات المشاريع ================= */
+
+        .project-stats {
+
+            width: 90%;
+            max-width: 1200px;
+
+            margin: 0 auto 60px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .project-stat {
+
+            background: #0c1d30;
+
+            border: 1px solid #1b405d;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            transition: .3s;
+        }
+
+        .project-stat:hover {
+
+            border-color: #00d9ff;
+
+            transform: translateY(-5px);
+        }
+
+        .project-stat strong {
+
+            display: block;
+
+            color: #00d9ff;
+
+            font-size: 35px;
+        }
+
+        .project-stat span {
+
+            color: #9fb0c0;
+        }
+
+
+        /* ================= رسالة الفريق ================= */
+
+        .projects-message {
+
+            width: 90%;
+
+            max-width: 1000px;
+
+            margin: 70px auto 0;
+
+            padding: 35px;
+
+            text-align: center;
+
+            background: #0c1d30;
+
+            border: 1px solid #1b405d;
+
+            border-radius: 22px;
+        }
+
+        .projects-message h2 {
+
+            color: #00d9ff;
+
+            margin-bottom: 10px;
+        }
+
+        .projects-message p {
+
+            color: #a9bbcb;
+
+            line-height: 2;
+        }
+
+
+        @media(max-width: 900px) {
+
+            .projects {
+
+                grid-template-columns: 1fr;
+            }
+
+            .project-stats {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .projects-title h1 {
+
+                font-size: 35px;
+            }
+
+            .project-stats {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= القائمة ================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            CODE<span>TEAM</span>
+        </a>
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    الرئيسية
+                </a>
+            </li>
+
+            <li>
+                <a href="team.html">
+                    الفريق
+                </a>
+            </li>
+
+            <li>
+                <a href="projects.html">
+                    المشاريع
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#technologies">
+                    التقنيات
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html#contact">
+                    تواصل معنا
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- ================= المشاريع ================= -->
+
+<section class="projects-page">
+
+
+    <div class="projects-title">
+
+        <span>
+            🚀 OUR PROJECTS
+        </span>
+
+        <h1>
+            مشاريع فريق Code Team
+        </h1>
+
+        <p>
+            نحول أفكارنا البرمجية إلى مشاريع عملية.
+        </p>
+
+    </div>
+
+
+    <!-- ================= إحصائيات ================= -->
+
+    <div class="project-stats">
+
+        <div class="project-stat">
+
+            <strong>10+</strong>
+
+            <span>
+                مشاريع
+            </span>
+
+        </div>
+
+
+        <div class="project-stat">
+
+            <strong>12+</strong>
+
+            <span>
+                تقنيات
+            </span>
+
+        </div>
+
+
+        <div class="project-stat">
+
+            <strong>6+</strong>
+
+            <span>
+                أعضاء
+            </span>
+
+        </div>
+
+
+        <div class="project-stat">
+
+            <strong>100%</strong>
+
+            <span>
+                عمل جماعي
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= قائمة المشاريع ================= -->
+
+    <div class="projects">
+
+
+        <!-- المشروع 01 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images.jpg"
+                     alt="نظام إدارة متجر">
+
+                <span class="project-number">
+                    مشروع 01
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    💻 C++ SYSTEM
+                </span>
+
+                <h2>
+                    نظام إدارة متجر
+                </h2>
+
+                <p>
+                    نظام لإدارة المنتجات والمبيعات
+                    والعملاء والمخزون بطريقة منظمة.
+                </p>
+
+                <span class="technology">C++</span>
+                <span class="technology">Files</span>
+                <span class="technology">OOP</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 02 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (1).jpg"
+                     alt="نظام إدارة الطلاب">
+
+                <span class="project-number">
+                    مشروع 02
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🎓 EDUCATION SYSTEM
+                </span>
+
+                <h2>
+                    نظام إدارة الطلاب
+                </h2>
+
+                <p>
+                    نظام لإدارة بيانات الطلاب
+                    والدرجات والتخصصات.
+                </p>
+
+                <span class="technology">Java</span>
+                <span class="technology">SQL</span>
+                <span class="technology">OOP</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 03 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (2).jpg"
+                     alt="موقع Code Team">
+
+                <span class="project-number">
+                    مشروع 03
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🌐 WEB DEVELOPMENT
+                </span>
+
+                <h2>
+                    موقع Code Team
+                </h2>
+
+                <p>
+                    موقع متكامل لعرض الفريق
+                    والمشاريع والتقنيات والمهارات.
+                </p>
+
+                <span class="technology">HTML</span>
+                <span class="technology">CSS</span>
+                <span class="technology">JavaScript</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 04 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (3).jpg"
+                     alt="قاعدة بيانات">
+
+                <span class="project-number">
+                    مشروع 04
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🗄️ DATABASE
+                </span>
+
+                <h2>
+                    نظام قاعدة البيانات
+                </h2>
+
+                <p>
+                    تصميم قاعدة بيانات لتنظيم
+                    البيانات وربط الجداول والعلاقات.
+                </p>
+
+                <span class="technology">SQL</span>
+                <span class="technology">Oracle</span>
+                <span class="technology">Database</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 05 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (4).jpg"
+                     alt="مشروع الشبكات">
+
+                <span class="project-number">
+                    مشروع 05
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🌐 NETWORK
+                </span>
+
+                <h2>
+                    مشروع الشبكات
+                </h2>
+
+                <p>
+                    دراسة أساسيات الشبكات وعناوين IP
+                    وطرق الاتصال بين الأجهزة.
+                </p>
+
+                <span class="technology">Networks</span>
+                <span class="technology">IP</span>
+                <span class="technology">Linux</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 06 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (5).jpg"
+                     alt="الأمن السيبراني">
+
+                <span class="project-number">
+                    مشروع 06
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🔐 CYBER SECURITY
+                </span>
+
+                <h2>
+                    أساسيات الأمن السيبراني
+                </h2>
+
+                <p>
+                    مشروع تعليمي للتعرف على حماية
+                    الأنظمة والبيانات وأساسيات الأمن.
+                </p>
+
+                <span class="technology">Security</span>
+                <span class="technology">Linux</span>
+                <span class="technology">Networks</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 07 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (6).jpg"
+                     alt="مشروع Python">
+
+                <span class="project-number">
+                    مشروع 07
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🐍 PYTHON
+                </span>
+
+                <h2>
+                    مشروع Python
+                </h2>
+
+                <p>
+                    مجموعة من التطبيقات البرمجية
+                    والخوارزميات باستخدام Python.
+                </p>
+
+                <span class="technology">Python</span>
+                <span class="technology">Algorithms</span>
+                <span class="technology">Programming</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 08 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (7).jpg"
+                     alt="تصميم واجهات">
+
+                <span class="project-number">
+                    مشروع 08
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🎨 UI / UX
+                </span>
+
+                <h2>
+                    تصميم واجهات المستخدم
+                </h2>
+
+                <p>
+                    تصميم واجهات حديثة وسهلة الاستخدام
+                    للمواقع والتطبيقات.
+                </p>
+
+                <span class="technology">UI</span>
+                <span class="technology">UX</span>
+                <span class="technology">Design</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 09 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (8).jpg"
+                     alt="نظام إدارة مؤسسة">
+
+                <span class="project-number">
+                    مشروع 09
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🏢 MANAGEMENT SYSTEM
+                </span>
+
+                <h2>
+                    نظام إدارة مؤسسة
+                </h2>
+
+                <p>
+                    نظام لتنظيم بيانات المؤسسة
+                    والموظفين والعملاء والعمليات.
+                </p>
+
+                <span class="technology">Java</span>
+                <span class="technology">SQL</span>
+                <span class="technology">OOP</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- المشروع 10 -->
+
+        <div class="project-card">
+
+            <div class="project-image">
+
+                <img src="images/images (9).jpg"
+                     alt="مشروع Linux">
+
+                <span class="project-number">
+                    مشروع 10
+                </span>
+
+            </div>
+
+            <div class="project-info">
+
+                <span class="type">
+                    🐧 LINUX
+                </span>
+
+                <h2>
+                    بيئة Linux
+                </h2>
+
+                <p>
+                    التعرف على أنظمة Linux والأوامر
+                    وإدارة الملفات وبيئة العمل.
+                </p>
+
+                <span class="technology">Linux</span>
+                <span class="technology">Terminal</span>
+                <span class="technology">OS</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= رسالة الفريق ================= -->
+
+    <div class="projects-message">
+
+        <h2>
+            🤝 فريق واحد • أفكار متعددة • هدف واحد
+        </h2>
+
+        <p>
+            نحن Code Team، نعمل معاً كفريق واحد على تطوير مهاراتنا
+            وتحويل ما نتعلمه في علوم الحاسوب إلى مشاريع عملية.
+            كل مشروع يمثل خطوة جديدة في رحلتنا التعليمية والتقنية.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- ================= Footer ================= -->
+
+<footer>
+
+    <h2>
+        CODE TEAM 💻
+    </h2>
+
+    <p>
+        نبرمج اليوم لنصنع المستقبل غداً.
+    </p>
+
+    <p>
+        © 2026 Code Team
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+```
