@@ -1,4 +1,3 @@
-```css
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +10,7 @@ body {
     background: #06101d;
     color: white;
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
 a {
@@ -33,6 +33,7 @@ header {
     z-index: 999;
     background: rgba(4, 12, 24, 0.96);
     border-bottom: 1px solid #183550;
+    backdrop-filter: blur(10px);
 }
 
 .navbar {
@@ -40,10 +41,10 @@ header {
     max-width: 1200px;
     min-height: 72px;
     margin: auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 0;
 }
 
 .logo {
@@ -67,24 +68,20 @@ header {
     transition: 0.3s;
 }
 
-.navbar ul a:hover {
+.navbar ul a:hover,
+.navbar ul a.active {
     color: #00d9ff;
 }
-
 
 /* ================= HERO ================= */
 
 .hero {
     min-height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 120px 20px 60px;
-
     background:
         radial-gradient(circle at 20% 20%, #064267, transparent 30%),
         radial-gradient(circle at 80% 80%, #073650, transparent 30%),
@@ -108,6 +105,7 @@ header {
 .hero h1 {
     font-size: 65px;
     margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 .hero h1 span {
@@ -120,47 +118,58 @@ header {
     margin-bottom: 30px;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.hero-note {
+    color: #00d9ff;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
 
 /* ================= BUTTON ================= */
 
 .btn {
     display: inline-block;
-
     padding: 12px 25px;
-
     border: none;
     border-radius: 30px;
-
     background: #0077ff;
-
     color: white;
-
     cursor: pointer;
-
     transition: 0.3s;
-
     margin: 5px;
+    font-weight: bold;
 }
 
 .btn:hover {
     transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 25px #0077ff44;
+    box-shadow: 0 10px 25px #0077ff44;
 }
 
 .btn-outline {
     background: transparent;
-
     border: 1px solid #00d9ff;
-
     color: #00d9ff;
 }
 
+.btn-outline:hover {
+    background: #00d9ff;
+    color: #06101d;
+}
 
 /* ================= SECTIONS ================= */
 
 section {
+    padding: 90px 0;
+}
+
+.section-padding {
     padding: 90px 0;
 }
 
@@ -175,6 +184,8 @@ section {
 
 .section-title span {
     color: #00d9ff;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 .section-title h2 {
@@ -186,7 +197,6 @@ section {
     color: #91a6ba;
 }
 
-
 /* ================= ABOUT ================= */
 
 .about {
@@ -195,11 +205,8 @@ section {
 
 .about-grid {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 40px;
-
     align-items: center;
 }
 
@@ -215,47 +222,46 @@ section {
 
 .vision-card {
     background: #0d2135;
-
     border: 1px solid #1b4566;
-
     border-radius: 25px;
-
-    padding: 60px 20px;
-
+    padding: 40px 25px;
     text-align: center;
 }
 
 .big-icon {
-    font-size: 80px;
+    font-size: 70px;
+    margin-bottom: 15px;
 }
 
-.vision-card h2 {
+.vision-card h2, .vision-card h3 {
     color: #00d9ff;
+    margin-bottom: 10px;
 }
 
+.vision-card p {
+    color: #b4c4d2;
+}
+
+.vision-divider {
+    height: 1px;
+    background: #1b4566;
+    margin: 25px 0;
+}
 
 /* ================= TECHNOLOGIES ================= */
 
 .tech-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .tech-card {
     background: #0d2033;
-
     border: 1px solid #1b405d;
-
     border-radius: 18px;
-
     padding: 25px;
-
     text-align: center;
-
     transition: 0.4s;
 }
 
@@ -266,6 +272,8 @@ section {
 
 .tech-card span {
     font-size: 45px;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .tech-card h3 {
@@ -275,8 +283,8 @@ section {
 
 .tech-card p {
     color: #94a9bb;
+    font-size: 0.9rem;
 }
-
 
 /* ================= STATS ================= */
 
@@ -286,30 +294,21 @@ section {
 
 .stats-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .stat {
     text-align: center;
-
-    padding: 35px;
-
+    padding: 35px 20px;
     background: #0b1c2d;
-
     border-radius: 20px;
-
     border: 1px solid #183b57;
 }
 
 .stat strong {
     display: block;
-
     color: #00d9ff;
-
     font-size: 45px;
 }
 
@@ -317,208 +316,273 @@ section {
     color: #a0b1c1;
 }
 
+.stats-note {
+    text-align: center;
+    color: #647b91;
+    margin-top: 25px;
+    font-size: 0.85rem;
+}
+
+/* ================= PROJECTS PREVIEW ================= */
+
+.projects-preview {
+    background: #06101d;
+}
+
+.home-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.home-project {
+    background: #0d2033;
+    border: 1px solid #1b405d;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.home-project:hover {
+    transform: translateY(-8px);
+    border-color: #00d9ff;
+}
+
+.home-project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-tag {
+    display: inline-block;
+    background: #06101d;
+    color: #00d9ff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.project-info h3 {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: #94a9bb;
+    font-size: 0.9rem;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 40px;
+}
 
 /* ================= CONTACT ================= */
 
 .contact-box {
     max-width: 700px;
-
     margin: auto;
-
     background: #0c1d30;
-
-    padding: 30px;
-
+    padding: 35px;
     border-radius: 20px;
-
     border: 1px solid #193b5b;
+}
+
+.contact-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00d9ff;
 }
 
 .contact-box input,
 .contact-box textarea {
     width: 100%;
-
     padding: 15px;
-
-    margin-bottom: 15px;
-
+    margin-bottom: 20px;
     background: #06101d;
-
     border: 1px solid #234660;
-
     border-radius: 10px;
-
     color: white;
-
     outline: none;
+    font-family: inherit;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: #00d9ff;
 }
 
 .contact-box textarea {
-    height: 150px;
+    height: 140px;
     resize: none;
 }
 
+.form-note {
+    text-align: center;
+    color: #71889c;
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
 
 /* ================= FOOTER ================= */
 
 footer {
     text-align: center;
-
     background: #030911;
-
-    padding: 35px 20px;
+    padding: 40px 20px;
+    border-top: 1px solid #102538;
 }
 
-footer h2 {
-    color: #00d9ff;
+footer .logo {
+    display: inline-block;
+    margin-bottom: 10px;
 }
 
 footer p {
     color: #8195a8;
+    margin-bottom: 15px;
 }
 
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #b0c4d6;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00d9ff;
+}
+
+.copyright {
+    color: #556a7d;
+    font-size: 0.85rem;
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20ba5a;
+}
 
 /* ================= ANIMATION ================= */
 
 @keyframes appear {
-
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
+/* ================= MOBILE & RESPONSIVE ================= */
 
-/* ================= MOBILE ================= */
-
-@media(max-width: 900px) {
-
+@media (max-width: 900px) {
     .tech-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .stats-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    .home-projects {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .about-grid {
         grid-template-columns: 1fr;
     }
-
 }
 
-
-@media(max-width: 650px) {
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        padding: 15px 0;
+    }
 
     .navbar ul {
-        gap: 10px;
+        gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
+        font-size: 0.9rem;
     }
 
     .hero h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
 
-    .tech-grid,
+    .hero p {
+        font-size: 16px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-projects {
         grid-template-columns: 1fr;
     }
 
+    .contact-box {
+        padding: 20px;
+    }
 }
 
-
-/* ================= فريقنا في الصفحة الرئيسية ================= */
-
-.team-preview {
-    background: #071522;
-    padding: 90px 0;
-}
-
-.home-team {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 25px;
-}
-
-.home-member {
-    background: #0d2033;
-
-    border: 1px solid #1b405d;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    text-align: center;
-
-    transition: 0.4s;
-}
-
-.home-member:hover {
-    transform: translateY(-10px);
-
-    border-color: #00d9ff;
-
-    box-shadow:
-        0 15px 35px #00d9ff22;
-}
-
-.home-member img {
-    width: 100%;
-
-    height: 260px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.home-member h3 {
-    color: #00d9ff;
-
-    margin: 15px 10px 5px;
-
-    font-size: 21px;
-}
-
-.home-member p {
-    color: #a8bac9;
-
-    padding: 0 10px 20px;
-}
-
-
-/* ================= TEAM RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-
-    .home-team {
-        grid-template-columns:
-            repeat(2, 1fr);
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
     }
 
-}
-
-@media (max-width: 550px) {
-
-    .home-team {
-        grid-template-columns: 1fr;
+    .hero-buttons {
+        flex-direction: column;
     }
 
+    .hero-buttons .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .stat strong {
+        font-size: 35px;
+    }
 }
